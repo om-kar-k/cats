@@ -1,0 +1,20 @@
+<p>cat-list works!</p>
+
+<h2>
+    <table border="1" >
+        <tr><th>Id</th><th>Name</th>
+        <tr *ngFor="let cat of catlist">
+            <td>{{cat.id}}</td>
+            <td>{{cat.catname}}</td>
+            <td> <a routerLink="/details/{{cat.id}}" class="btn btn-warning"> details </a></td>
+            <td> <a routerLink="/edit/{{cat.id}}" class="btn btn-success"> edit </a></td>
+
+            <td><a (click) = "delete(cat.id)" href="javascript:void()" class="btn btn-danger">delete</a></td>
+           
+            
+        </tr>
+       
+
+    </table>
+    <a routerLink="/add" class="btn btn-info"> add </a>
+</h2>

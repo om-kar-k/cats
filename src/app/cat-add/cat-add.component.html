@@ -1,0 +1,16 @@
+<p>cat-add works!</p>
+
+
+<form #form="ngForm" novalidate (ngSubmit)="onSubmit(form)">
+    <div class="form-group">
+        <label for="catname">Enter cat name</label><br>
+        <input #catname="ngModel" required minlength="2" maxlength="15" type="text" name="catname"      class="form-control" ngModel>
+            <p *ngIf="catname.hasError('required')">category name is required</p><br>
+            <p *ngIf="catname.hasError('minlength')">minimum length should be 2</p>
+        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Done</button>
+</div>
+</form>
+
+<br>
+<br>
+<a routerLink="/catlist">Back to list</a>

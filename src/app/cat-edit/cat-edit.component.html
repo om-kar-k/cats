@@ -1,0 +1,21 @@
+<p>cat-edit works!</p>
+<form #form="ngForm" novalidate (ngSubmit)="onSubmit(modifiedcategory)">
+<div class="form-group">
+    <label for="catname">Id</label><br>
+
+    <input #id="ngModel" readonly name="CatId"      
+    class="form-control" [(ngModel)]="modifiedcategory.id">
+
+    <label for="catname">catname</label><br>
+
+    <input #catname="ngModel" required minlength="2" maxlength="15" type="text" name="catname"      
+    class="form-control" [(ngModel)]="modifiedcategory.catname">
+
+        <p *ngIf="catname.hasError('required')">category name is required</p>
+
+        <p *ngIf="catname.hasError('minlength')">minimum length should be 2</p>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+
+    </div>
+</form>
